@@ -1,9 +1,5 @@
-function Circle(radius) {
-  this.radius = radius;
-  this.draw = function() {
-    console.log("draw ...");
-  };
-}
+let x = 10;
+let y = x;
+x = 20;
 
-let c1 = Circle.call({}, 1);
-let c2 = Circle.apply({}, [1]);
+console.log(y);
