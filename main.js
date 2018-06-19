@@ -21,3 +21,6 @@ function Circle(radius) {
 }
 const circleCreatedByConstructor = new Circle(2);
 circleCreatedByConstructor.draw();
+
+console.log(circleCreatedByFactory.constructor);
+console.log(circleCreatedByConstructor.constructor);
