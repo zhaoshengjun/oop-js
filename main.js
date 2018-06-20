@@ -1,20 +1,14 @@
 function Circle(radius) {
   this.radius = radius;
+  this.defaultLocation = { x: 0, y: 0 };
+  this.computeOptimumLocation = function() {
+    // use default location to do calculation
+  };
   this.draw = function() {
+    this.computeOptimumLocation();
     console.log("draw");
   };
 }
 const circle = new Circle(10);
-
-for (let key in circle) {
-  if (typeof circle[key] !== "function") {
-    console.log(key, circle[key]);
-  }
-}
-
-const keys = Object.keys(circle);
-console.log(keys);
-
-if ("radius" in circle) {
-  console.log("Circle has a radius.");
-}
+circle.defaultLocation = false;
+circle.draw(); // this will create error
