@@ -1,5 +1,10 @@
-let x = { value: 10 };
-let y = x;
-x.value = 20;
+function Circle(radius) {
+  this.radius = radius;
+  this.draw = function() {
+    console.log("draw");
+  };
+}
+const circle = new Circle(10);
 
-console.log(y.value);
+circle.location = { x: 1 };
+circle[location] = { x: 1 };
