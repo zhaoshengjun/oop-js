@@ -11,3 +11,5 @@ circle[location] = { x: 1 };
 
 const propertyName = "center location";
 circle[propertyName] = { x: 1 };
+
+delete circle["location"];
