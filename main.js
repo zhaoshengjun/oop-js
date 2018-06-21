@@ -1,22 +1,38 @@
-function Circle(radius) {
-  let defaultLocation = { x: 0, y: 0 };
-  this.radius = radius;
-  this.draw = function() {
-    console.log("draw");
+function StopWatch() {
+  let startTime,
+    stopTime,
+    status,
+    duration = 0;
+  this.start = function() {
+    if (status === "started") {
+      throw new Error("Stop watch has already started.");
+    }
+    status = "started";
+    startTime = Date.now();
   };
 
-  Object.defineProperty(this, "defaultLocation", {
+  this.stop = function() {
+    if (status === "stopped") {
+      throw new Error("Stop watch has already stopped.");
+    } else if (status === "started") {
+      status = "stopped";
+      stopTime = Date.now();
+      duration = duration + (stopTime - startTime) / 1000;
+    } else {
+      throw new Error("Stop watch has not started yet.");
+    }
+  };
+
+  this.reset = function() {
+    status = null;
+    startTime = null;
+    stopTime = null;
+    duration = 0;
+  };
+
+  Object.defineProperty(this, "duration", {
     get: function() {
-      return defaultLocation;
-    },
-    set: function(val) {
-      if (!val.x || !val.y) {
-        throw new Error("Invalid location!");
-      }
-      defaultLocation = val;
+      return duration + "s";
     }
   });
 }
-const circle = new Circle(10);
-circle.draw();
-circle.defaultLocation = 1;
