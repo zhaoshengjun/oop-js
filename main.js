@@ -8,8 +8,15 @@ function Circle(radius) {
   Object.defineProperty(this, "defaultLocation", {
     get: function() {
       return defaultLocation;
+    },
+    set: function(val) {
+      if (!val.x || !val.y) {
+        throw new Error("Invalid location!");
+      }
+      defaultLocation = val;
     }
   });
 }
 const circle = new Circle(10);
 circle.draw();
+circle.defaultLocation = 1;
