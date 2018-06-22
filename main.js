@@ -2,9 +2,9 @@ let person = { name: "John" };
 
 Object.defineProperty(person, "name", {
   writable: false,
-  enumerable: false
+  enumerable: true,
+  configurable: false
 });
 
-person.name = "Josh";
-console.log(person.name);
-console.log(Object.keys(person));
+delete person.name;
+console.log(person);
