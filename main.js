@@ -1,7 +1,8 @@
 let person = { name: "John" };
 
-let personBase = Object.getPrototypeOf(person);
+Object.defineProperty(person, "name", {
+  writable: false
+});
 
-let des = Object.getOwnPropertyDescriptor(personBase, "toString");
-console.log(des);
-// configuration: true; enumerable: false, writable: true
+person.name = "Josh";
+console.log(person.name);
