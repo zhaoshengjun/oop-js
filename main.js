@@ -1,4 +1,7 @@
-let x = {};
-let y = {};
+let person = { name: "John" };
 
-Object.getPrototypeOf(x) === Object.getPrototypeOf(y); //return true
+person.toString();
+
+for (let key in person) console.log(key);
+
+Object.keys(person);
